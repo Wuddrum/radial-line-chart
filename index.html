@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Radial Line Chart Demo</title>
+  <link rel="stylesheet" href="radial-line-chart.css">
+  <style>
+    .container {
+      width: 1200px;
+      margin: 0 auto;
+      padding-top: 80px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+      <div id="chart-container"></div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.js"></script>
+  <script src="data.js"></script>
+  <script src="radial-line-chart.js"></script>
+  <script>
+    var data = getData();
+    var chart = new RadialLineChart({
+      data: data,
+      selector: "#chart-container",
+      asymmetricalScaling: true,
+      chartSize: 650,
+      thresholds: {
+        heightened: 1.0,
+        outbreak: 2.0
+      }
+    });
+
+    chart.render();
+  </script>
+</body>
+</html>

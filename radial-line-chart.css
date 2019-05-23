@@ -1,0 +1,310 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.chart-svg {
+    vertical-align: top
+}
+
+.chart > .threshold-circle {
+    stroke-width: 1px;
+    stroke: #bdc2c5;
+    stroke-dasharray: 2.5, 3;
+}
+
+.chart-defs .line,
+.chart-defs .line-connector {
+    stroke-width: 6.5px;
+}
+
+.chart > #line-overlays .line,
+.chart > #line-overlays .line-connector {
+    stroke: #fff;
+    stroke-width: 7px;
+    opacity: 0;
+}
+
+.chart-defs .line,
+.chart > #line-overlays .line {
+    stroke-linecap: round;
+}
+
+.chart-defs .line-connector,
+.chart > #line-overlays .line-connector {
+    stroke-linecap: butt;
+}
+
+.chart > #line-overlays .line-container.disabled {
+    pointer-events: none;
+}
+
+.chart > .outbreak-active {
+    stroke: #e73735;
+}
+
+.chart > .outbreak-inactive {
+    stroke: #d6d5d5;
+}
+
+.chart > .heightened-active {
+    stroke: #ebc10b;
+}
+
+.chart > .heightened-inactive {
+    stroke : #f3f3f3;
+}
+
+.chart > .normal-active {
+    stroke: #44be93;
+}
+
+.chart > .normal-inactive {
+    stroke: #d6d5d5;
+}
+
+.tooltip {
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+}
+
+.tooltip:not(.active) {
+    display: none;
+}
+
+.tooltip > .tooltip-container {
+    transform: translate(-50%, -50%);
+}
+
+.tooltip > .tooltip-container > .tooltip-card {
+    position: absolute;
+    display: table;
+    box-sizing: border-box;
+    width: 170px;
+    height: 120px;
+    padding: 18px 14px;
+    background-color: #ffffff;
+    border: 1px solid;
+    font-size: 10px;
+}
+
+.tooltip > .tooltip-container > .tooltip-card.top-right {
+    left: 33px;
+    bottom: 28px;
+}
+
+.tooltip > .tooltip-container > .tooltip-card.top-left {
+    right: 33px;
+    bottom: 28px;
+}
+
+.tooltip > .tooltip-container > .tooltip-card.bottom-left {
+    top: 28px;
+    right: 33px;
+}
+
+.tooltip > .tooltip-container > .tooltip-card.bottom-right {
+    top: 28px;
+    left: 33px;
+}
+
+.tooltip .date-title,
+.tooltip .status-title {
+    font-weight: bold;
+    color: #31425a;
+}
+
+.tooltip .date,
+.tooltip .status {
+    color: #afb2b3;
+    margin-left: 4px;
+}
+
+.tooltip .date-container,
+.tooltip .status-container {
+    margin-top: 4px;
+    margin-left: 6px;
+}
+
+.tooltip .activity {
+    display: table-row;
+    vertical-align: bottom;
+    height: 28px;
+    line-height: 28px;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+}
+
+.tooltip .circle {
+    border-radius: 50%;
+}
+
+.tooltip .circle1 {
+    position: relative;
+    width: 53px;
+    height: 53px;
+}
+
+.tooltip .circle2 {
+    position: absolute;
+    width: 76%;
+    height: 76%;
+    top: 12%;
+    left: 12%;
+}
+
+.tooltip .circle3 {
+    position: absolute;
+    width: 66%;
+    height: 66%;
+    top: 17%;
+    left: 17%;
+}
+
+.tooltip.outbreak .tooltip-card {
+    border-color: #e73735;
+}
+
+.tooltip.outbreak .activity {
+    background-color: #e73735;
+}
+
+.tooltip.outbreak .circle1 {
+    background-color: #f47764;
+}
+
+.tooltip.outbreak .circle2 {
+    background-color: #f14c41;
+}
+
+.tooltip.outbreak .circle3 {
+    background-color: #e73735;
+}
+
+.tooltip.heightened .tooltip-card {
+    border-color: #ebc10b;
+}
+
+.tooltip.heightened .activity {
+    background-color: #ebc10b;
+}
+
+.tooltip.heightened .circle1 {
+    background-color: #f8e076;
+}
+
+.tooltip.heightened .circle2 {
+    background-color: #f5d02a;
+}
+
+.tooltip.heightened .circle3 {
+    background-color: #ebc10b;
+}
+
+.tooltip.normal .tooltip-card {
+    border-color: #4dbc96;
+}
+
+.tooltip.normal .activity {
+    background-color: #4dbc96;
+}
+
+.tooltip.normal .circle1 {
+    background-color: #7fd3ba;
+}
+
+.tooltip.normal .circle2 {
+    background-color: #4dbc96;
+}
+
+.tooltip.normal .circle3 {
+    background-color: #37a481;
+}
+
+.chart-buttons { 
+    margin-left: 48px;
+    margin-bottom: 115px;
+}
+
+.chart-buttons .year-button {
+    width: 106px;
+    height: 26px;
+    font-size: 11px;
+    font-weight: bold;
+    border: 2px solid #31425a !important;
+    background-color: #31425a;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.chart-buttons .year-button:not(:nth-of-type(1)) {
+    margin-left: 2px;
+}
+
+.chart-buttons .year-button:hover {
+    background-color: #3d4d64;
+}
+
+.chart-buttons .year-button.selected {
+    background-color: #31425a;
+    color: #ffffff;
+
+    background-color: #ffffff;
+    color: #31425a;
+}
+
+.chart-table-container {
+    display: inline-block;
+    margin-left: 76px;
+}
+
+.chart-table {
+    border-collapse: collapse;
+    color: #464648;
+    margin-right: -100px;
+}
+
+.chart-table > tr:nth-of-type(1) > td {
+    padding-bottom: 15px;
+    color: #31425a;
+}
+
+.chart-table td {
+    width: 146px;
+    vertical-align: top;
+    text-align: center;
+    padding: 10px 20px 6px 20px;
+}
+
+.chart-table td:nth-of-type(1) {
+    text-align: right;
+    font-size: 18px;
+}
+
+.chart-table td:not(:nth-of-type(1)) {
+    box-sizing: border-box;
+    font-weight: bold;
+    font-size: 15px;
+    border-bottom: 1px solid #dbdedf;
+    text-transform: uppercase;
+}
+
+.chart-table td.outbreak {
+    color: #e73836;
+}
+
+.chart-table td.heightened {
+    color: #ebc10b;
+}
+
+.chart-table td.normal {
+    color: #37a481;
+}
