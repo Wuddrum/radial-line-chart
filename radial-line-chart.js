@@ -755,8 +755,8 @@ function RadialLineChart(options) {
     var tableDateColumn = [];
     var baseEntries = data.years[0].entries;
 
-    for (let i = 0; i < baseEntries.length; i++) {
-      const entry = baseEntries[i];
+    for (var i = 0; i < baseEntries.length; i++) {
+      var entry = baseEntries[i];
       var isFirstEntry = i === 0;
 
       if (isFirstEntry) {
