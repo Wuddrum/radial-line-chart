@@ -703,7 +703,8 @@ function RadialLineChart(options) {
 
         statusCell = {
           points: points,
-          activity: activity
+          activity: activity,
+          entry: closestEntry
         };
 
         tableRow.push(statusCell);
