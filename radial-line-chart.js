@@ -884,6 +884,14 @@ function RadialLineChart(options) {
     }
   }
 
+  function showTooltipForEntry(entry) {
+    var location = getLocationOfEntry(entry);
+    var domLocation = getDomLocationFromChartCoordinates(location);
+    var quadrant = getQuadrantOfLocation(location);
+
+    showTooltip(entry, domLocation, quadrant);
+  }
+
   function showTooltip(entry, domLocation, quadrant) {
     var tooltip = d3.select(selector + " .tooltip");
 
@@ -961,11 +969,7 @@ function RadialLineChart(options) {
       closestEntry = findClosestEntryToDate(date, yearIndex);
     }
 
-    var location = getLocationOfEntry(closestEntry);
-    var domLocation = getDomLocationFromChartCoordinates(location);
-    var quadrant = getQuadrantOfLocation(location);
-
-    showTooltip(closestEntry, domLocation, quadrant);
+    showTooltipForEntry(closestEntry);
   }
 
   function onClickYearButton() {
