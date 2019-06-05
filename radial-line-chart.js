@@ -154,7 +154,15 @@ function RadialLineChart(options) {
         }
 
         return d.points;
-      });
+      })
+      .on("mouseenter", function(d) {
+        if (!d || !d.entry) {
+          return;
+        }
+
+        showTooltipForEntry(d.entry);
+      })
+      .on("mouseleave", hideTooltip);
   }
 
   function renderLines(chart, defs) {
